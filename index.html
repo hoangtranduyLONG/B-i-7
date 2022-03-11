@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="a">Nhập a:</label>
+<input id="a" type="text" oninput="timnghiem()">
+<label for="b">Nhập b:</label>
+<input id="b" type="text" oninput="timnghiem()">
+<label for="c">Nhập c:</label>
+<input id="c" type="text" oninput="timnghiem()">
+<h3 id="pheptinh"></h3>
+<h3 id="result"></h3>
+<script>
+    let a = document.getElementById("a");
+    let b = document.getElementById("b");
+    let c = document.getElementById("c");
+    let result = document.getElementById("result");
+
+    function timnghiem() {
+        let aa = +a.value;
+        let bb = +b.value;
+        let cc = +c.value;
+        document.getElementById("pheptinh").innerHTML= aa + "x<sup>2</sup> + " + bb + "x + " + cc + "=0";
+
+        let delta = bb**2 - 4*aa*cc;
+        if (delta < 0) {
+            result.innerText = "Phương trình vô nghiệm"
+        }
+        else if (delta === 0) {
+            result.innerText = "Phương trình có nghiệm kép: x1 = x2 = " + (-bb/(2*aa));
+        }
+        else {
+            result.innerText = "Phương trình có 2 nghiệm phân biệt là: x1 = " + ((-bb) + delta**(1/2))/(2*aa) + "; x2 = " + ((-bb) - delta**(1/2))/(2*aa);
+        }
+    }
+</script>
+</body>
+</html>
